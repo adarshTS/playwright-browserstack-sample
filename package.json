@@ -8,6 +8,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "browserstack-local": "^1.5.1",
     "playwright": "^1.14.0"
   },
   "devDependencies": {

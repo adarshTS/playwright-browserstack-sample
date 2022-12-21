@@ -14,6 +14,7 @@ const { devices } = require('@playwright/test');
  */
 const config = {
   testDir: './tests',
+  testMatch: '**/*.spec.js',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
@@ -45,27 +46,35 @@ const config = {
   },
 
   /* Configure projects for major browsers */
-  projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-    },
+  // projects: [
+  //   {
+  //     name: 'chrome@latest:Windows 10@browserstack',
+  //     use: {
+  //       browserName: 'chromium',
+  //       channel: 'chrome'
+  //     },
+  //   }
+  // ]
+  //   {
+  //     name: 'chromium',
+  //     use: {
+  //       ...devices['Desktop Chrome'],
+  //     },
+  //   },
 
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
+    // {
+    //   name: 'firefox',
+    //   use: {
+    //     ...devices['Desktop Firefox'],
+    //   },
+    // },
 
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-      },
-    },
+    // {
+    //   name: 'webkit',
+    //   use: {
+    //     ...devices['Desktop Safari'],
+    //   },
+    // }
 
     /* Test against mobile viewports. */
     // {
@@ -94,7 +103,7 @@ const config = {
     //     channel: 'chrome',
     //   },
     // },
-  ],
+  // ],
 
   /* Folder for test artifacts such as screenshots, videos, traces, etc. */
   // outputDir: 'test-results/',
