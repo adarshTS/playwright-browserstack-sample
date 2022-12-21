@@ -16,11 +16,10 @@ const caps = {
 };
 
 
-test('bstackDemo', async () => {
+test('bstackDemo', async ({ page }) => {
 
   const browser = await chromium.connect({
     wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(caps))}`});
-  // const page = await browser.newPage();
 
   await page.goto("https://bstackdemo.com/");
   await page.getByRole("link", { name: "Sign In" }).click();
