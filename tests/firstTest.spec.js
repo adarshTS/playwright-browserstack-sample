@@ -1,25 +1,24 @@
-import { test, expect } from '@playwright/test';
+import { test, page, expect } from '@playwright/test';
 import { chromium } from 'playwright';
 
 const cp = require('child_process');
-const clientPlaywrightVersion = cp.execSync('npx playwright --version').toString().trim().split(' ')[1];  // This is used to get the installed Playwright version on you machine. The same needs to be passed on to BrowserStack so that proper request-response mapping can be done for mismatched client and server Playwright versions in the same test
+const clientPlaywrightVersion = cp.execSync('npx playwright --version').toString().trim().split(' ')[1];  
 
 const caps = {
-  'browser': 'playwright-chromium',
+  'browser': 'playwright-firefox',
   'os': 'os x',
-  'os_version': 'mojave',
+  'os_version': 'big sur',
+  'name': 'Playwright',
+  'build': 'Playwright-Build',
   'browserstack.username': process.env.BROWSERSTACK_USERNAME,
   'browserstack.accessKey': process.env.BROWSERSTACK_ACCESS_KEY,
   'client.playwrightVersion': clientPlaywrightVersion
 };
 
-
-test("test", async ({ page }) => {
-
+test('firstTest',async () => {
   const browser = await chromium.connect({
-    wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(caps))}`
-  });
-
+    wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(caps))}`});
+  const page = await browser.newPage();
   await page.goto("https://bstackdemo.com/");
   await page.getByRole("link", { name: "Sign In" }).click();
   await page.locator("#username svg").click();
@@ -27,7 +26,6 @@ test("test", async ({ page }) => {
   await page.locator("#password svg").click();
   await page.locator("#react-select-3-option-0-0").click();
   await page.getByRole("button", { name: "Log In" }).click();
-  await page.pause();
   await page.locator('[id="\\31 "]').getByText("Add to cart").click();
   await page.getByText("Samsung").click();
   await page.locator('[id="\\31 5"]').getByText("Add to cart").click();
