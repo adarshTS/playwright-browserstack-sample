@@ -1,0 +1,32 @@
+# Node.js
+# Build a general Node.js project with npm.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16'
+  displayName: 'Install Node.js'
+
+- task: BrowserStackConfig@0
+  inputs:
+    BrowserStackServiceEndPoint: 'BrowserStack'
+    browserstackLocal: true
+
+- script: |
+    npm install
+    npx playwright test  
+  displayName: 'npm install and build'
+
+- task: BrowserStackStopLocal@0
+
+- task: BrowserStackResults@1
+  inputs:
+    browserstackProduct: 'automate'
