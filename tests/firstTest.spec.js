@@ -9,7 +9,7 @@ const caps = {
   'os': 'os x',
   'os_version': 'big sur',
   'name': 'Playwright',
-  'build': 'Playwright-Build',
+  'build': process.env.BROWSERSTACK_BUILD_NAME,
   'browserstack.username': process.env.BROWSERSTACK_USERNAME,
   'browserstack.accessKey': process.env.BROWSERSTACK_ACCESS_KEY,
   'client.playwrightVersion': clientPlaywrightVersion
