@@ -14,7 +14,6 @@ const { devices } = require('@playwright/test');
  */
 const config = {
   testDir: './tests',
-  headless: false,
   testMatch: '**/*.spec.js',
   /* Maximum time one test can run for. */
   timeout: 100 * 1000,
