@@ -17,7 +17,7 @@ const caps = {
 
 test('firstTest',async () => {
   const browser = await chromium.connect({
-    wsEndpoint: `wss://cdp.browserstack.com/playwright?caps=${encodeURIComponent(JSON.stringify(caps))}`,
+    wsEndpoint: `wss://cdp.browserstack.com/playwright/?caps=${encodeURIComponent(JSON.stringify(caps))}`,
     headless: true
 });
   const page = await browser.newPage();
