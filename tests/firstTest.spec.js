@@ -5,7 +5,7 @@ const cp = require('child_process');
 const clientPlaywrightVersion = cp.execSync('npx playwright --version').toString().trim().split(' ')[1];  
 
 const caps = {
-  'browser': 'playwright-firefox',
+  'browser': 'chrome',
   'os': 'os x',
   'os_version': 'big sur',
   'name': 'Playwright',
