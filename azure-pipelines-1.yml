@@ -14,6 +14,9 @@ steps:
   inputs:
     versionSpec: '10'
   displayName: 'Install Node.js'
+- task: CmdLine@2
+  inputs:
+    script: 'node --version'
 
 - task: BrowserStackConfig@0
   inputs:
