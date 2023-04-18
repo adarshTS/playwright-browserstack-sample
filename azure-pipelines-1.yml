@@ -12,7 +12,7 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '16'
+    versionSpec: '10'
   displayName: 'Install Node.js'
 
 - task: BrowserStackConfig@0
