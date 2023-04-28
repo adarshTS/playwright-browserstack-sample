@@ -14,20 +14,11 @@ steps:
   inputs:
     versionSpec: '16'
   displayName: 'Install Node.js'
-
 - task: BrowserStackConfig@0
   inputs:
     BrowserStackServiceEndPoint: 'BrowserStack'
     browserstackLocal: true
-
-- task: CmdLine@2
-  inputs:
-    script: 'npm ls'
-
-# - script: |
-#     npm install
-#     npx playwright test  
-#   displayName: 'npm install and build'
+    bsLocalOptions: 'forcelocal: true'
 
 - task: BrowserStackStopLocal@0
 
