@@ -17,6 +17,8 @@ steps:
 - task: BrowserStackConfig@0
   inputs:
     BrowserStackServiceEndPoint: 'BrowserStack'
+    browserstackLocal: true
+    bsLocalOptions: 'forcelocal: true'
 
 - script: |
     npm install
