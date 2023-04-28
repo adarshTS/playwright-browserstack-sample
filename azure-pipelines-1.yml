@@ -21,7 +21,3 @@ steps:
     bsLocalOptions: 'forcelocal: true'
 
 - task: BrowserStackStopLocal@0
-
-- task: BrowserStackResults@1
-  inputs:
-    browserstackProduct: 'automate'
