@@ -16,8 +16,7 @@ steps:
   displayName: 'Install Node.js'
 - task: BrowserStackConfig@0
   inputs:
-    BrowserStackServiceEndPoint: 'BrowserStack'
+    BrowserStackServiceEndPoint: 'new-Demo-Connection'
     browserstackLocal: true
-    bsLocalOptions: 'forcelocal: true'
 
 - task: BrowserStackStopLocal@0
