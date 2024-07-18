@@ -9,9 +9,6 @@ trigger:
 pool:
   vmImage: windows-2019
 
-variables:
-  build: 'BROWSERSTACK_BUILD_NAME'
-
 steps:
 - task: NodeTool@0
   inputs:
