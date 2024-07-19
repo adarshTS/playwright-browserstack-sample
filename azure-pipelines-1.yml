@@ -7,18 +7,29 @@ trigger:
 - master
 
 pool:
-  vmImage: windows-2019
+  vmImage: 'windows-2019'
 
 steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '16'
   displayName: 'Install Node.js'
+
 - task: BrowserStackConfig@0
   inputs:
     BrowserStackServiceEndPoint: 'Browserstack'
     browserstackLocal: true
+  displayName: 'Configure BrowserStack'
+
+- script: |
+    npm install
+    npx playwright test
+  displayName: 'Run tests'
+
 - task: BrowserStackStopLocal@0
+  displayName: 'Stop BrowserStack Local'
+
 - task: BrowserStackResults@1
   inputs:
     browserstackProduct: 'Automate'
+  displayName: 'Fetch BrowserStack Results'
