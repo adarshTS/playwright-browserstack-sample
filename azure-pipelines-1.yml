@@ -23,6 +23,9 @@ steps:
 
 - script: |
     npm install
+  displayName: 'node install'
+
+- script: |
     npx playwright test
   displayName: 'Run tests'
 
